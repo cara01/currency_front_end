@@ -85,9 +85,13 @@ export class CurrencyService {
     for (let i = 0; i < rates.length; i++) {
       let currentRate = rates[i];
       if (currentRate.currency === targetCurrency) {
-        convertedCalcAmount = currentRate.rate
+        convertedCalcAmountTo = currentRate.rate
+      }
+      if (currentRate.currency === sourceCurrency) {
+        convertedCalcAmountFrom = currentRate.rate
       }
     }
+    convertedCalcAmount = convertedCalcAmountTo / convertedCalcAmountFrom
     return convertedCalcAmount;
   }
 
